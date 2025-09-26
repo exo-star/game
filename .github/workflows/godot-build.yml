@@ -1,0 +1,24 @@
+name: Godot Android Export
+
+on:
+  workflow_dispatch:
+
+jobs:
+  export-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Godot
+        uses: firebelley/godot-export@v5.2.0
+        with:
+          relative_project_path: .
+          use_presets_export_path: true
+          export_as_pack: false
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-horror-game
+          path: build.apk
