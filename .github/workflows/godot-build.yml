@@ -13,10 +13,10 @@ jobs:
       - name: Export game to Android
         uses: firebelley/godot-export@v5.2.0
         with:
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/mono/Godot_v4.2.1-stable_mono_linux.x86_64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.2.1/mono/Godot_v4.2.1-stable_mono_export_templates.tpz
           relative_project_path: .
-          use_godot_4: true
-          use_presets_export_path: true
-          export_as_pack: false
+          relative_export_path: build.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
